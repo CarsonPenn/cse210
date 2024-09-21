@@ -1,5 +1,6 @@
 # cse210-student-template
 This is the starter code for students in CSE 210.
+Which Carson Smith has graciously accepted and will take kind care of.
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
