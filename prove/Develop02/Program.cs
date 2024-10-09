@@ -5,6 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        
 // calling the journal and creating a new journal
         Journal journal = new Journal();
 
@@ -50,7 +51,11 @@ class Program
                     journal.AddEntry(prompt);
                     break;
 
-                    default:
+                case "2":
+                    journal.DisplayEntries();
+                    break;
+
+                default:
                     Console.WriteLine("Invalid choice, please try again.");
                     break;
                     )
@@ -74,9 +79,8 @@ class Program
 
 
 
-// CODE OVERVIEW AND PERSONAL NOTES 
+// * * * CODE OVERVIEW AND PERSONAL NOTES * * * 
 // CALL THE JOURNAL METHOD and create a new journal
-// CREATE A LIST OF PROMPTS !!CHANGING FROM ORIGINAL CONCEPT, NO LONGER USING PROMPT GENERATOR!!
 // CREATE A MENU LOOP
 // CREATE PROMPT RANDOMIZER
 
@@ -89,3 +93,5 @@ class Program
 // 3) write into the prompt entry an option to SKIP a prompt and get a new one?
 
 // SOURCES USED github copilot to help autofill and debug code, chatgpt to catch any errors in my code, and to help me figure out how to do a loop within a loop
+// case tutorial
+// save files tutorial

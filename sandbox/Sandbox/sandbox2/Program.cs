@@ -1,38 +1,48 @@
-﻿using System.Globalization;
+﻿using System;
 
-namespace sandbox2;
-
-class Program
+namespace MyFirstProgram
 {
-    static void Main(string[] args)
+    class Program
     {
-        List<double> x;
-        x=[24, 25, 26] ;
-        // x.Add(24.5) ;
-        // x.Add(30);
- 
-
-        Console.WriteLine("Hello, World!");
-
-        double input = -1;
-        while(input !=0)
+        static void Main(string[] args)
         {
-            Console.Write("Enter something: ");
-            string input_string = Console.ReadLine();
-            input = double.Parse(input_string);
-            x.Add(input);
-        }
- 
+            // switch = an efficient alternative to many else if statements
 
-        foreach(double number in x)
-        {
-            Console.WriteLine(number);
-        
+            Console.WriteLine("What day is it today?");
+            String day = Console.ReadLine().ToLower();
+
+            switch (day)
+            {
+                case "monday":
+                    Console.WriteLine("It's Monday!");
+                    {
+                        Console.WriteLine("It's Monday!");
+                    }
+                    break;
+                case "Tuesday":
+                    Console.WriteLine("It's Tuesday!");
+                    break;
+                case "Wednesday":
+                    Console.WriteLine("It's Wednesday!");
+                    break;
+                case "Thursday":
+                    Console.WriteLine("It's Thursday!");
+                    break;
+                case "Friday":
+                    Console.WriteLine("It's Friday!");
+                    break;
+                case "Saturday":
+                    Console.WriteLine("It's Saturday!");
+                    break;
+                case "Sunday":
+                    Console.WriteLine("It's Sunday!");
+                    break;
+                default:
+                    Console.WriteLine(day + " is not a day!");
+                    break;
+            }
+
+            Console.ReadKey();
         }
     }
 }
-
-
-// myList.Add()
-
-// List<> myList = new 
