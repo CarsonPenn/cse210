@@ -1,88 +1,74 @@
 using System;
 using System.Dynamic;
-// CODE OVERVIEW BELOW
+// CODE OVERVIEW BELOW and my sources
+
 class Program
 {
     static void Main(string[] args)
     {
-        
-// calling the journal and creating a new journal
+        // Console.WriteLine("Hello Develop02 World!");
         Journal journal = new Journal();
+        Console.WriteLine("Welcome to the Journal Program!");
 
-        List<string> prompts = new List<string>
+        bool running = true;
+        while (running)
         {
-            "Why are you proud of yourself today? ",
-            "How did you see the hand of the Lord today? ",
-            "Did you learn anything new today? ",
-            "What is something that you know now that you wish you did at the beginning of the day? ",
-            "What was the best part of today? ",
-            "Who made you laugh today? ",
-            "What is something you wish you could \"do over\"? ",
-            "What is something that you want to do tomorrow? ",
-            "Who did you meet that made you smile? ",
-            "What do you think you did good today? ",
-            "What is something you did for someone else? ",
-            "Is there anything you want to revise about this program? If so do it! ",
-            "If you had one more hour to spend today, what would you do with it? ",
-
-
-        };
-// using a bool to create a loop that will keep going while quit equals false, the while will keep going so long as while is !quit that means while the quit choice has not been chosen.
-        bool quit = false;
-        while (!quit)
-        {
-// menu options
-            Console.WriteLine("\n Welcome back to your digital journal!");
-            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("Please select one of the following choices: ");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
-            Console.WriteLine("3. Save");
-            Console.WriteLine("4. Load");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            // potentially add a settings option, ER #2
-
-            Console.WriteLine("\n What would you like to do?: "):
-            string choice = Console.ReadLine():
+            Console.Write("What would you like to do? ");
+            int choice = int.Parse(Console.ReadLine());
+            Console.WriteLine();
 
             switch (choice)
-            {
-                case "1":
-                    string prompt = GetRandomPrompt(prompts);
-                    journal.AddEntry(prompt);
+            {   
+                //Write
+                case 1:
+                    journal.NewEntry();
+                    Console.WriteLine();
                     break;
-
-                case "2":
+                //Display
+                case 2:
                     journal.DisplayEntries();
+                    Console.WriteLine();
                     break;
-
+                //Load
+                case 3:
+                    Console.Write("Enter the file name you want to load: ");
+                    string loadFileName = Console.ReadLine();
+                    journal.LoadEntries(loadFileName);
+                    Console.WriteLine();
+                    break;
+                //Save
+                case 4:
+                    Console.Write("Enter the file name you want to save (will be saved as csv) ");
+                    string saveFileName = Console.ReadLine();
+                    journal.SaveEntries(saveFileName);
+                    Console.WriteLine("Saved!");
+                    Console.WriteLine();
+                    break;
+                //Quit
+                case 5:
+                    running = false;
+                    Console.WriteLine("See ya later Carson, journal again soon!");
+                    Console.WriteLine();
+                    break;
                 default:
-                    Console.WriteLine("Invalid choice, please try again.");
+                    Console.WriteLine("WHOOPS, that's not a valid choice! Please try again.");
                     break;
-                    )
-
-                    // add in a case for each of the options
             }
-
         }
-
-//  goodbye message
-
     }
-        static string GetRandomPrompt(List<string> prompts)
-        {
-            Random random = new Random():
-            int index = random.Next(prompts.Count);
-            return prompts[index];
-
-        }
 }
-
 
 
 // * * * CODE OVERVIEW AND PERSONAL NOTES * * * 
 // CALL THE JOURNAL METHOD and create a new journal
 // CREATE A MENU LOOP
-// CREATE PROMPT RANDOMIZER
+// CALL ENTRY TO GET PROMPT, RESPONSE, AND DATE
 
 // * * * EXCEEDS REQUIREMENTS IDEAS * * * 
 // 1) create a loop within the menu loop,
@@ -93,5 +79,6 @@ class Program
 // 3) write into the prompt entry an option to SKIP a prompt and get a new one?
 
 // SOURCES USED github copilot to help autofill and debug code, chatgpt to catch any errors in my code, and to help me figure out how to do a loop within a loop
-// case tutorial
-// save files tutorial
+// case/switch tutorial https://www.youtube.com/watch?v=uxTIhRDxJek
+// w3schools for review on methods, https://www.w3schools.com/cs/cs_methods.php
+// w3schools for boolean tips https://www.w3schools.com/cs/cs_while_loop.php
