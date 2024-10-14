@@ -37,9 +37,9 @@ public class Entry
 
         while (!acceptedPrompt)
         {
-            int randomIndex = rand.Next(prompts.Count);   // this selects a random prompt
-            _prompt = prompts[randomIndex];               // heer i assigns the prompt to _prompt
-            Console.WriteLine($"Prompt: {_prompt}");      // displays the prompt
+            int randomIndex = rand.Next(prompts.Count);   
+            _prompt = prompts[randomIndex];               
+            Console.WriteLine($"Prompt: {_prompt}");      
 
             // Asking if the prompt would like to be skipped
             Console.Write("Would you like to skip this prompt? (Y/N): ");
@@ -58,7 +58,7 @@ public class Entry
 // End of exceeds requirements part
     public void GetResponse()
     {
-        Console.Write("> ");
+        Console.Write("-> ");
         _response = Console.ReadLine();
         
         // Console.Write

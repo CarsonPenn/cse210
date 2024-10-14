@@ -82,3 +82,4 @@ class Program
 // case/switch tutorial https://www.youtube.com/watch?v=uxTIhRDxJek
 // w3schools for review on methods, https://www.w3schools.com/cs/cs_methods.php
 // w3schools for boolean tips https://www.w3schools.com/cs/cs_while_loop.php
+// abstraction https://www.youtube.com/watch?v=jRkmPRk5j2E
