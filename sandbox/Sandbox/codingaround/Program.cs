@@ -1,4 +1,4 @@
-﻿namespace CashRegister;
+﻿namespace codingaround;
 
 class Program
 {

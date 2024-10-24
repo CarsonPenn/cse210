@@ -1,22 +1,26 @@
 using System;
 
-// getting and storing the Text of a scripture
-public class Scripture{
-    public string Book { get; set; }
-    public int Chapter { get; set; }
-    public int Verse { get; set; }
-    public string Text { get; set; }
 
-    public Scripture(string book, int chapter, int verse, string text)
+class Scripture{ 
+    private string _scriptureText;
+    private Reference _scriptureReference;
+
+    public Scripture (Reference scriptureReference, string scriptureText)
     {
-        Book = book;
-        Chapter = chapter;
-        Verse = verse;
-        Text = text;
+        _scriptureReference = scriptureReference;
+        _scriptureText = scriptureText;
     }
 
-    public override string ToString()
+    public string toString()
     {
-        return $"{Book} {Chapter}:{Verse} - {Text}";
+        return string.Format("{0}", _scriptureText);
     }
+
 }
+// goal compile the scripture text 
+// Steps:
+// 1. create new class
+// 2 create the methods
+// 3 have the Scritpture class take the Reference and tie it together with the scripture text
+// 4 convert the scripture text to a string
+// 
