@@ -62,3 +62,6 @@ class Word
         return retValue;
     }
 }
+
+// I knew i would need somwhat complicated loops so i used some youtube examples on how to use, while, foreach, and if. 
+// Chatgpt taught me some examples of how to set up the loops 

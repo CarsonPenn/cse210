@@ -28,6 +28,7 @@ class Program
         Console.Clear();
         Console.WriteLine(string.Format("{0} {1}", scriptureReference.toString(), word.toString()));
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Blue; 
         Console.WriteLine("May the force be with you!");
 
 
@@ -47,3 +48,4 @@ class Program
 // 
 
 // Sources:
+// validated with chat gpt
