@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 
 class Program
 {
@@ -9,7 +8,7 @@ class Program
 
         // while loop
         Console.WriteLine("Welcome back to the Mindfullness Assistant");
-        Console.WriteLine("Lets step away from the world for a moment.");
+        Console.WriteLine("Let's step away from the world for a moment together.");
         Console.WriteLine();
         bool running = true;
         while (running)
@@ -18,7 +17,7 @@ class Program
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflecting Activity");
             Console.WriteLine("3. Listing Activity");
-            Console.WriteLine("4. Quotes/Affirmations Activity");
+            Console.WriteLine("4. Quotes Activity");
             Console.WriteLine("5. Quit");
             Console.WriteLine();
             Console.WriteLine("Which activity are you in the mood for?");
@@ -52,7 +51,7 @@ class Program
                     Console.Clear();
                     QuotesActivity quotes = new QuotesActivity();
                     quotes.RunQuotesActivity();
-
+                    break;
                 // quit
                 case 5:
                     running = false;

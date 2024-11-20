@@ -39,7 +39,7 @@ public class Activity
         _endMessage = $"You have done {_userLength} seconds of {_activityName}.";
         Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Doesn't it feel great?");
+        Console.WriteLine("Great job! Hope you enjoyed it!");
         DisplaySpinner(3);
         Console.WriteLine();
         Console.WriteLine(_endMessage);
@@ -63,46 +63,32 @@ public class Activity
         return _userLength;
     }
 
-    // spinjitsu time 
-    public void DisplaySpinner(int numRunTime)
+    // spinerjitsu time 
+    public void DisplaySpinner(int numSecondsToRun)
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
+        // Console.ForegroundColor = ConsoleColor.Green;
 
-        while (stopwatch.ElapsedMilliseconds / 1000 < numRunTime)
+        while (stopwatch.ElapsedMilliseconds / 1000 < numSecondsToRun)
         {
             _spinnerCounter++;
-            switch(_spinnerCounter % 5)
+            switch (_spinnerCounter % 4)
             {
-                case 0: Console.WriteLine("◢"); break;
-                case 1: Console.WriteLine("◣"); break;
-                case 2: Console.WriteLine("◤"); break;
-                case 3: Console.WriteLine("◥ "); break;
-                case 4: Console.WriteLine("■"); break;
+                case 0: Console.Write("/"); break;
+                case 1: Console.Write("-"); break;
+                case 2: Console.Write("\\"); break;
+                case 3: Console.Write("|"); break;
             }
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-            Thread.Sleep(200);
-            
-            // alt idea
-        // while (stopwatch.ElapsedMilliseconds / 1000 < numRunTime)
-        //     {
-        //         _spinnerCounter++;
-        //         switch (_spinnerCounter % 4)
-        //         {
-        //             case 0: Console.Write("◜"); break;  // Top-left corner
-        //             case 1: Console.Write("◝"); break;  // Top-right corner
-        //             case 2: Console.Write("◞"); break;  // Bottom-left corner
-        //             case 3: Console.Write("◟"); break;  // Bottom-right corner
-        //         }
-
-        //         Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-        //         Thread.Sleep(200);
-        //     }
-
-            
+            Thread.Sleep(150);
         }
-        Console.WriteLine();
+        // Console.ResetColor();
+        Console.Write(" ");
     }
+
+
+
 //time for countdown
     public void DisplayCountdown(int numRunTime)
     {
@@ -166,3 +152,20 @@ public void RunActivityEnd()
 
 
 
+    // alt idea
+        // while (stopwatch.ElapsedMilliseconds / 1000 < numRunTime)
+        //     {
+        //         _spinnerCounter++;
+        //         switch (_spinnerCounter % 4)
+        //         {
+        //             case 0: Console.Write("◜"); break;  // Top-left corner
+        //             case 1: Console.Write("◝"); break;  // Top-right corner
+        //             case 2: Console.Write("◞"); break;  // Bottom-left corner
+        //             case 3: Console.Write("◟"); break;  // Bottom-right corner
+        //         }
+
+        //         Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+        //         Thread.Sleep(200);
+        //     }
+
+         
