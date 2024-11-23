@@ -1,20 +1,12 @@
 using System;
-// Load
-//Save
-// List
-// Quit
-
-
-public class Goal{
-
-    // name and descriptino
+public class Goal
+{
     private string _goalName;
     private string _goalDescription;
 
     public Goal()
     {}
-
-    public Goal(string goalName, string goalDescription);
+    public Goal(string goalName, string goalDescription)
     {
         _goalName = goalName;
         _goalDescription = goalDescription;
@@ -22,29 +14,25 @@ public class Goal{
 
     public string GetGoalName()
     {
-        return _goalname;
+        return _goalName;
     }
-
-    public void SetGoalName(string goalName);
+    public void SetGoalName(string goalName)
     {
-        _goalName = GetGoalName;
+        _goalName = goalName;
     }
-
     public string GetGoalDescription()
     {
         return _goalDescription;
     }
-
     public void SetGoalDescription(string goalDescription)
     {
-        _goalDescription = goalDescription
+        _goalDescription = goalDescription;
     }
 
-    public virtual void DisplayGoalPoints()
+       public virtual void DisplayGoalPoints()
     {
         return;
     }
-
     public virtual int GetGoalPoints()
     {
         return 0;
@@ -55,18 +43,27 @@ public class Goal{
         return false;
     }
 
-    public virtual string RecordGoal()
+    public virtual string ToCSVRecord()
     {
         return "";
     }
-
     public virtual void RecordEvent()
-    {}
+    {
+    }
 
     public string DisplayGoalName()
     {
-        Console.Write("What would you like to name your goal?");
-        
+        Console.Write("What is the name of your goal? ");
+        _goalName = Console.ReadLine();
+        return _goalName;
     }
 
+    public string DisplayGoalDescription()
+    {
+        Console.Write("What is the description of your goal? ");
+        _goalDescription = Console.ReadLine();
+        return _goalDescription;
+    }
+
+ 
 }
