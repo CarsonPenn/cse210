@@ -40,7 +40,7 @@ public class EternalGoal : Goal {
 
     // Display the goal with progress
     public override void ListGoal() {
-        Console.WriteLine($"[ ] {_name} ({_description}) - Progress: {_progress} times completed");
+        Console.WriteLine($"[∞] {_name} ({_description}) - Progress: {_progress} times completed");
     }
 
     // Eternal goals are never "complete"

@@ -1,25 +1,21 @@
-/* status
-bonus
-
-CheckIfBonus
-Create
-GetPoints(,)
-Checklist(string*/
-
 using System;
-using System.Dynamic;
 
-// set up variables
 public class ChecklistGoal : Goal {
-        private int _bonusPoints;
-        private int _steps;
-        private int _progress;
+    private int _bonusPoints;
+    private int _steps;
+    private int _progress;
 
+    // Default constructor
     public ChecklistGoal() {
-
+        _name = "";
+        _description = "";
+        _goalPoints = 0;
+        _bonusPoints = 0;
+        _steps = 0;
+        _progress = 0;
     }
 
-    // calling and renamign
+    // Parameterized constructor
     public ChecklistGoal(string name, string description, int goalPoints, int bonusPoints, int steps, int progress) {
         _name = name;
         _description = description;
@@ -27,64 +23,76 @@ public class ChecklistGoal : Goal {
         _bonusPoints = bonusPoints;
         _steps = steps;
         _progress = progress;
-
     }
-    // create the unique checklist
+
+    // Create a new checklist goal
     public override void CreateChildGoal() {
-        CreateGoalOutline();
+        Console.Write("Enter the name of the goal: ");
+        _name = Console.ReadLine();
 
-        Console.Write("How many times does this goal need to be done before points are awarded?");
-        string stringChecklistSteps = Console.ReadLine();
-        _steps = Convert.ToInt32(stringChecklistSteps);
+        Console.Write("Enter a description for the goal: ");
+        _description = Console.ReadLine();
 
-        Console.Write("What is the bonus point awared?: ");
-        string bonusPoints = Console.ReadLine();
-        _bonusPoints = Convert.ToInt32(bonusPoints);
+        Console.Write("Enter the points awarded for each completed step: ");
+        if (int.TryParse(Console.ReadLine(), out int goalPoints)) {
+            _goalPoints = goalPoints;
+        } else {
+            Console.WriteLine("Invalid input. Setting points to 0.");
+            _goalPoints = 0;
+        }
 
-        // beging the progress
-        _progress = 0;
+        Console.Write("How many steps to complete the goal? ");
+        if (int.TryParse(Console.ReadLine(), out int steps)) {
+            _steps = steps;
+        } else {
+            Console.WriteLine("Invalid input. Setting steps to 0.");
+            _steps = 0;
+        }
+
+        Console.Write("Enter the bonus points for completing the goal: ");
+        if (int.TryParse(Console.ReadLine(), out int bonusPoints)) {
+            _bonusPoints = bonusPoints;
+        } else {
+            Console.WriteLine("Invalid input. Setting bonus points to 0.");
+            _bonusPoints = 0;
+        }
+
+        _progress = 0; // Initialize progress to 0 when a new goal is created
+        Console.WriteLine("Checklist goal created successfully!");
     }
+
+    // Determine if the goal is complete
     public override bool Complete() {
-      if (_progress >= _steps) {
-        return true;
-      } else {
-        return false;
-      }
+        return _progress >= _steps;
     }
 
-    // increment progress
-    public override void RecordEvent(){
-        _progress ++;
+    // Record progress for a checklist goal
+    public override void RecordEvent() {
+        if (_progress < _steps) {
+            _progress++;
+            Console.WriteLine($"Progress for '{_name}': {_progress}/{_steps}");
+        } else {
+            Console.WriteLine("Goal is already completed!");
+        }
     }
-    public override int CalcualtePoints() {
-        int points = 0;
-        points = _progress * _goalPoints;
-        bool status = Complete();
 
-        if (status == true) {
-            points += _bonusPoints;
+    // Calculate points based on progress
+    public override int CalculatePoints() {
+        int points = _progress * _goalPoints;
+        if (Complete()) {
+            points += _bonusPoints; // Award bonus points only if the goal is completed
         }
         return points;
     }
 
-    // list goal
+    // List goal details
     public override void ListGoal() {
-        string statusMarker = "";
-        bool status = Complete();
-        if (status == true) {
-            statusMarker = "X";
-        } else {
-            statusMarker = " ";
-        }
-
-        Console.Write($"[{statusMarker}] {_name} ({_description}) --Currently Completed {_progress}/{_steps}");
+        string statusMarker = Complete() ? "X" : " ";
+        Console.WriteLine($"[{statusMarker}] {_name} ({_description}) -- Completed {_progress}/{_steps} steps.");
     }
 
+    // Save goal data
     public override string SaveGoal() {
-        string line = "";
-        line = $"ChecklistGoal:" + _name + "," + _description + "," + _goalPoints.ToString() + "," + _bonusPoints.ToString() + "," + _progress.ToString();
-        return line;
+        return $"ChecklistGoal:{_name},{_description},{_goalPoints},{_bonusPoints},{_steps},{_progress}";
     }
-
 }
- 
