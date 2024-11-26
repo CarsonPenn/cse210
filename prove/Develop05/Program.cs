@@ -159,3 +159,6 @@ static void HandleSaveLoadMenu(GoalTracker goals)
 // chatgpt
 // numerous youtubes
 // w3schools
+
+// exceeding requirements, i really struggled with this assignment so i did a simple change to the menu organization in an attempt to make things 
+// more clustered together, that way once a user gets to know the program they can quickly do what they would like to do
