@@ -5,7 +5,7 @@ public class ChecklistGoal : Goal {
     private int _steps;
     private int _progress;
 
-    // Default constructor
+    // default constructor
     public ChecklistGoal() {
         _name = "";
         _description = "";
@@ -15,7 +15,7 @@ public class ChecklistGoal : Goal {
         _progress = 0;
     }
 
-    // Parameterized constructor
+    // constructors
     public ChecklistGoal(string name, string description, int goalPoints, int bonusPoints, int steps, int progress) {
         _name = name;
         _description = description;
@@ -25,7 +25,7 @@ public class ChecklistGoal : Goal {
         _progress = progress;
     }
 
-    // Create a new checklist goal
+    // new checklist goal
     public override void CreateChildGoal() {
         Console.Write("Enter the name of the goal: ");
         _name = Console.ReadLine();
@@ -61,12 +61,12 @@ public class ChecklistGoal : Goal {
         Console.WriteLine("Checklist goal created successfully!");
     }
 
-    // Determine if the goal is complete
+    // is goal complete
     public override bool Complete() {
         return _progress >= _steps;
     }
 
-    // Record progress for a checklist goal
+    // checklist special progress check
     public override void RecordEvent() {
         if (_progress < _steps) {
             _progress++;
@@ -76,7 +76,7 @@ public class ChecklistGoal : Goal {
         }
     }
 
-    // Calculate points based on progress
+    // award progress points
     public override int CalculatePoints() {
         int points = _progress * _goalPoints;
         if (Complete()) {
@@ -85,13 +85,13 @@ public class ChecklistGoal : Goal {
         return points;
     }
 
-    // List goal details
+    //goal details
     public override void ListGoal() {
         string statusMarker = Complete() ? "X" : " ";
         Console.WriteLine($"[{statusMarker}] {_name} ({_description}) -- Completed {_progress}/{_steps} steps.");
     }
 
-    // Save goal data
+    // line up to save
     public override string SaveGoal() {
         return $"ChecklistGoal:{_name},{_description},{_goalPoints},{_bonusPoints},{_steps},{_progress}";
     }

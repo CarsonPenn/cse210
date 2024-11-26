@@ -7,7 +7,7 @@ public class Goal
     protected int _goalPoints;
     protected bool _status;
 
-    // Default constructor for testing
+    // Default example
     public Goal()
     {
         _name = "Test Name";
@@ -16,7 +16,7 @@ public class Goal
         _status = false;
     }
 
-    // Parameterized constructor
+// constructor
     public Goal(string name, string description, int goalPoints)
     {
         _name = name;
@@ -25,7 +25,7 @@ public class Goal
         _status = false; 
     }
 
-    // Create a basic outline for a goal
+    //  basic outline for a goal
     protected void CreateGoalOutline()
     {
         Console.Write("What is your goal's name?: ");
@@ -35,7 +35,7 @@ public class Goal
         Console.Write("How many points is this goal worth?: ");
         string stringGoalPoints = Console.ReadLine();
 
-        // Validate and parse goal points
+        // getting the goal points
         if (int.TryParse(stringGoalPoints, out int points))
         {
             _goalPoints = points;
@@ -49,27 +49,27 @@ public class Goal
         _status = false; // Reset status
     }
 
-    // Save goal to a formatted string (can be overridden by derived classes)
+    //standard save format
     public virtual string SaveGoal()
     {
         return $"Goal: {_name},{_description},{_goalPoints},{_status}";
     }
 
-    // Virtual method for creating a specific child goal
+// overriding to create a new goal
     public virtual void CreateChildGoal()
     {
-        // Placeholder for derived class implementation
+        // Placeholder 
         Console.WriteLine("Base CreateChildGoal() called. Override in child classes.");
     }
 
-    // Virtual method to record an event
+// recording
     public virtual void RecordEvent()
     {
-        // Placeholder for derived class implementation
-        Console.WriteLine("Base RecordEvent() called. Override in child classes.");
+// placeholder
+        Console.WriteLine("Goal to be saved");
     }
 
-    // Virtual method to determine completion status
+    // completion status
     public virtual bool Complete()
     {
         return _status;

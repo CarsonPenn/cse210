@@ -14,14 +14,14 @@ public class SimpleGoal : Goal {
         _goalPoints = 0;
         _status = false;
     }
-
+// constructros
     public SimpleGoal(string name, string description, int goalPoints, bool status) {
         _name = name;
         _description = description;
         _goalPoints = goalPoints;
         _status = status;
     }
-
+// create goal
     public override void CreateChildGoal() {
         Console.Write("Enter the name of the goal: ");
         _name = Console.ReadLine();
@@ -41,7 +41,7 @@ public class SimpleGoal : Goal {
         Console.WriteLine("");
         Console.WriteLine("Simple goal created successfully!");
     }
-
+// if done
     public override void RecordEvent() {
         if (!_status) {
             _status = true;
@@ -50,20 +50,20 @@ public class SimpleGoal : Goal {
             Console.WriteLine("You have already finished this goal.");
         }
     }
-
+// complete or not
     public override bool Complete() {
         return _status;
     }
-
+// list for displaying
     public override void ListGoal() {
         string statusMarker = _status ? "X" : " ";
         Console.WriteLine($"[{statusMarker}] {_name} ({_description})");
     }
-
-    public override int CalculatePoints() { // Fixed typo
+// calcukate how many points
+    public override int CalculatePoints() { 
         return _status ? _goalPoints : 0;
     }
-
+// saved in standard format
     public override string SaveGoal() {
         return $"simpleGoal:{_name},{_description},{_goalPoints},{Complete()}";
     }

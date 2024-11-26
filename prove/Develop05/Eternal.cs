@@ -11,7 +11,7 @@ public class EternalGoal : Goal {
         _progress = 0;
     }
 
-    // Parameterized constructor
+    // constructor
     public EternalGoal(string name, string description, int goalPoints) {
         _name = name;
         _description = description;
@@ -19,7 +19,7 @@ public class EternalGoal : Goal {
         _progress = 0;
     }
 
-    // Create a new eternal goal
+    // new eternal goal
     public override void CreateChildGoal() {
         Console.Write("Enter the name of the goal: ");
         _name = Console.ReadLine();
@@ -38,28 +38,28 @@ public class EternalGoal : Goal {
         Console.WriteLine("Eternal goal created successfully!");
     }
 
-    // Display the goal with progress
+    // progress
     public override void ListGoal() {
         Console.WriteLine($"[ ] {_name} ({_description}) - Progress: {_progress} times completed");
     }
 
-    // Eternal goals are never "complete"
+    // making the eteranal eteranl
     public override bool Complete() {
         return false;
     }
 
-    // Save goal data
+    // Save
     public override string SaveGoal() {
         return $"EternalGoal:{_name},{_description},{_goalPoints},{_progress}";
     }
 
-    // Record progress for an eternal goal
+    // record
     public override void RecordEvent() {
         _progress++;
         Console.WriteLine($"Recorded progress for '{_name}'. Total progress: {_progress}");
     }
 
-    // Calculate points based on progress
+    // points according to if done or note
     public override int CalculatePoints() {
         return _goalPoints * _progress;
     }
