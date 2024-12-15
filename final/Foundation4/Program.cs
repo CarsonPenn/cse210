@@ -2,8 +2,10 @@ using System;
 
 class Program
 {
+        
     static void Main(string[] args)
     {
+        Console.Clear();
         // Console.WriteLine("Hello Foundation4 World!");
         List<Exercise> exerciseList = new List<Exercise>();
 //  running

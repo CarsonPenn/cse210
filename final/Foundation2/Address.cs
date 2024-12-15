@@ -1,5 +1,5 @@
 using System;
-
+// address variables
 public class Address {
     private string _street;
     private string _city;
@@ -14,11 +14,11 @@ public class Address {
         _postalCode = postalCode;
         _country = country;
     }
-
+// check if in usa
     public bool isUSA() {
         return _country.ToLower() == "usa";
     }
-
+// generate the address
     public string GenerateAddress() {
         return $"{_street}, {_city}, {_stateOrRegion}, {_postalCode}, {_country}";
     }

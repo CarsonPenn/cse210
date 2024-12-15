@@ -9,7 +9,7 @@ public class Event {
     private string _date;
     private string _time;
     private Address _address;
-
+// getting all the standard things needed for the
     public Event(string title, string description, string date, string time, Address address) {
         _title = title;
         _description = description;
@@ -17,7 +17,7 @@ public class Event {
         _time = time;
         _address = address;
     }
-    
+    // standard template for the long description
     public string GenerateTemplate() {
         string template = "Title: " + _title + "\n";
         template += "Description: " + _description + "\n";
@@ -27,7 +27,7 @@ public class Event {
         template += address;
         return template;
     }
-
+    // quick details description
     public string GenerateShort() {
         string templateShort = "Title: "  + _title + "\n";
         templateShort += _date + "\n";

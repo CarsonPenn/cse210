@@ -1,13 +1,18 @@
+using System;
 public class Comment {
-    private string _name;
-    private string _text;
+    private string _username;
+    private string _content;
 
-    public Comment(string name, string text) {
-        _name = name;
-        _text = text;
+    public Comment(string username, string content) {
+        _username = username;
+        _content = content;
     }
 
     public void DisplayInfo() {
-        Console.WriteLine($"{_name} - {_text}");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"{"Username:",-15} {_username}");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine($"{"Comment:",-15} {_content}");
+        Console.WriteLine();
     }
 }

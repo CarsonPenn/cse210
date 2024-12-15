@@ -1,4 +1,4 @@
-
+using System;
 public class Video {
     private string _title;
     private string _author;
@@ -11,21 +11,30 @@ public class Video {
         _length = length;
     }
 
-    //add comment
+    // add comment
     public void AddComment(Comment comment) {
         _comments.Add(comment);
     }
-
 
     public int CountComments() {
         return _comments.Count;
     }
 
-// display
+    // Displaying stuff section
     public void DisplayInfo() {
-        Console.WriteLine($"Title: {_title} | Creator: {_author} | Length: {_length} seconds.");
+// aligning the colums thanks to a few youtube videos and chatgpt
+        Console.WriteLine($"{"Title",-50} | {"Creator",-20} | {"Length",8}");
+        Console.WriteLine(new string('-', 85)); 
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"{_title,-50} | {_author,-20} | {_length,10:N0} seconds");
+
+        // display comment count
         Console.WriteLine();
-        Console.WriteLine($"Number of comments: {CountComments()}");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine($"{"Number of comments:",-30} {CountComments()}");
+        Console.WriteLine(new string('-', 85));
+
+        //  comment display
         foreach (Comment comment in _comments) {
             comment.DisplayInfo();
         }
